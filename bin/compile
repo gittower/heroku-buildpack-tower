@@ -7,15 +7,19 @@ ENV_DIR=$3
 
 # Copy in SSH keys
 
-cp "$ENV_DIR/SSH_KEY_NPM" ~/.ssh/id_rsa-npm
-# Key must end with a newline
-echo >> ~/.ssh/id_rsa-npm
-chmod 600 ~/.ssh/id_rsa-npm
+if [[ -f "$ENV_DIR/SSH_KEY_NPM" ]]; then
+  cp "$ENV_DIR/SSH_KEY_NPM" ~/.ssh/id_rsa-npm
+  # Key must end with a newline
+  echo >> ~/.ssh/id_rsa-npm
+  chmod 600 ~/.ssh/id_rsa-npm
+fi
 
-cp "$ENV_DIR/SSH_KEY_COMPOSER" ~/.ssh/id_rsa-composer
-# Key must end with a newline
-echo >> ~/.ssh/id_rsa-composer
-chmod 600 ~/.ssh/id_rsa-composer
+if [[ -f "$ENV_DIR/SSH_KEY_COMPOSER" ]]; then
+  cp "$ENV_DIR/SSH_KEY_COMPOSER" ~/.ssh/id_rsa-composer
+  # Key must end with a newline
+  echo >> ~/.ssh/id_rsa-composer
+  chmod 600 ~/.ssh/id_rsa-composer
+fi
 
 echo "SSH keys copied"
 
