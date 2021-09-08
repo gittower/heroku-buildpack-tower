@@ -1,0 +1,39 @@
+#!/bin/bash
+
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+
+ENV_DIR=$3
+
+# Copy in SSH keys
+
+cp "$ENV_DIR/SSH_KEY_NPM" ~/.ssh/id_rsa-npm
+# Key must end with a newline
+echo >> ~/.ssh/id_rsa-npm
+chmod 600 ~/.ssh/id_rsa-npm
+
+cp "$ENV_DIR/SSH_KEY_COMPOSER" ~/.ssh/id_rsa-composer
+# Key must end with a newline
+echo >> ~/.ssh/id_rsa-composer
+chmod 600 ~/.ssh/id_rsa-composer
+
+echo "SSH keys copied"
+
+# Create SSH config file
+
+touch ~/.ssh/config
+chmod 600 ~/.ssh/config
+
+cat >> ~/.ssh/config << EOF
+Host github-npm
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa-npm
+EOF
+
+cat >> ~/.ssh/config << EOF
+Host github-composer
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa-composer
+EOF
+
+echo "SSH config file created"

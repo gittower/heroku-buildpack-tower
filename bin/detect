@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "heroku-buildpack-tower"
+exit 0
