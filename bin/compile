@@ -32,12 +32,14 @@ cat >> ~/.ssh/config << EOF
 Host github-npm
   HostName github.com
   IdentityFile ~/.ssh/id_rsa-npm
+  StrictHostKeyChecking no
 EOF
 
 cat >> ~/.ssh/config << EOF
 Host github-composer
   HostName github.com
   IdentityFile ~/.ssh/id_rsa-composer
+  StrictHostKeyChecking no
 EOF
 
 echo "SSH config file created"
