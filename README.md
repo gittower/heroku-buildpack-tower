@@ -1,6 +1,6 @@
 # heroku-buildpack-tower
 
-A Heroku buildpack for inserting SSH keys based on Heroku config vars and creating an SSH configuration file with host aliases. Used to let Tower websites pull in npm and Composer dependencies from private GitHub repositories.
+A Heroku buildpack for inserting SSH keys based on Heroku config vars and creating an SSH configuration file with host aliases. Used to let Tower websites pull in [Composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/) dependencies from private GitHub repositories.
 
 ## Usage
 
